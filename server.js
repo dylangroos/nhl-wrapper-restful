@@ -1,16 +1,16 @@
-var express = require('express');
+import express, { Router } from 'express';
 var app = express();
-var bodyParser = require('body-parser');
+import { urlencoded, json } from 'body-parser';
 
 // set parser for PUT requests
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+app.use(urlencoded({ extended: true }));
+app.use(json());
 
 // set port
 var port = process.env.PORT || 8080;        // set our port
 
 // set router
-var router = express.Router();     
+var router = Router();     
 
 // middleware to use for all requests
 router.use(function(req, res, next) {
@@ -31,8 +31,8 @@ require('./app/models/game')(app)
 
 app.use('/api', router);
 
-var Game = require('./app/models/game');
-const { set } = require('express/lib/application');
+import Game from './app/models/game';
+import { set } from 'express/lib/application';
 
 // START THE SERVER
 // =============================================================================

@@ -1,4 +1,4 @@
-# nhl-api
+# nhl-wrapper-restful
 api with endpoints to return nhl game data
 
 # Under Construction...
